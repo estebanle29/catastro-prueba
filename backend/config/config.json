@@ -1,0 +1,15 @@
+{
+    "serverPort": 5000,
+    "db": {
+      "host": "localhost",
+      "dialect": "postgres",
+      "database": "catastros",
+      "username": "postgres", 
+      "password": "bogota29"
+    },
+    "security": {
+      "secretKey": "some-secret-key",
+      "expiresIn": "10d"
+    }
+  }
+  

@@ -1,0 +1,47 @@
+type Predio {
+  predio_id: UUID!
+  numero_predial: String!
+  avaluo: Float!
+  nombre: String!
+  departamento: String!
+  municipio: String!
+  propietario: Propietario
+  construcciones: [Construccion!]
+  terreno: Terreno
+  created_at: Datatime
+  updated_at: Datatime
+}
+
+type Query {
+  predios: [Predio!]!
+  predio(predio_id: UUID!): Predio
+}
+
+type Mutation {
+  createPredio(input: CreatePredioInput!): Predio!
+  updatePredio(predio_id: UUID!, input: UpdatePredioInput!): Predio!
+  deletePredio(predio_id: UUID!): Boolean!
+}
+
+input CreatePredioInput {
+  numero_predial: String!
+  avaluo: Float!
+  nombre: String!
+  departamento: String!
+  municipio: String!
+  propietario: CreatePropietarioInput!
+  construcciones: [CreateConstruccionInput!]
+  terreno: CreateTerrenoInput!
+}
+
+input UpdatePredioInput {
+  numero_predial: String
+  avaluo: Float
+  nombre: String
+  departamento: String
+  municipio: String
+  propietario: UpdatePropietarioInput
+  construcciones: [UpdateConstruccionInput!]
+  terreno: UpdateTerrenoInput
+}
+

@@ -1,0 +1,50 @@
+type Propietario {
+  propietario_id: UUID!
+  predio_id: UUID
+  tipo_propietario: String!
+  tipo_documento: String!
+  numero_documento: String!
+  nombres: String
+  apellidos: String
+  razon_social: String
+  direccion: String!
+  telefono: String!
+  correo_electronico: String
+  created_at: Datatime
+  updated_at: Datatime
+}
+
+type Query {
+  propietarios: [Propietario!]!
+  propietario(propietario_id: UUID!): Propietario
+}
+
+type Mutation {
+  createPropietario(input: CreatePropietarioInput!): Propietario!
+  updatePropietario(propietario_id: UUID!, input: UpdatePropietarioInput!): Propietario!
+  deletePropietario(propietario_id: UUID!): Boolean!
+}
+
+input CreatePropietarioInput {
+  tipo_propietario: String!
+  tipo_documento: String!
+  numero_documento: String!
+  nombres: String
+  apellidos: String
+  razon_social: String
+  direccion: String!
+  telefono: String!
+  correo_electronico: String
+}
+
+input UpdatePropietarioInput {
+  tipo_propietario: String
+  tipo_documento: String
+  numero_documento: String
+  nombres: String
+  apellidos: String
+  razon_social: String
+  direccion: String
+  telefono: String
+  correo_electronico: String
+}

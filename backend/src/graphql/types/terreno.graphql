@@ -1,0 +1,39 @@
+type Terreno {
+  terreno_id: UUID!
+  predio_id: UUID
+  area: Float!
+  valor_comercial: Float!
+  cerca_fuentes_agua: Boolean
+  tipo_terreno: String!
+  construcciones_presentes: Boolean
+  created_at: Datatime
+  updated_at: Datatime
+}
+
+type Query {
+  terrenos: [Terreno!]!
+  terreno(terreno_id: UUID!): Terreno
+}
+
+type Mutation {
+  createTerreno(input: CreateTerrenoInput!): Terreno!
+  updateTerreno(terreno_id: UUID!, input: UpdateTerrenoInput!): Terreno!
+  deleteTerreno(terreno_id: UUID!): Boolean!
+}
+
+input CreateTerrenoInput {
+  area: Float!
+  valor_comercial: Float!
+  cerca_fuentes_agua: Boolean!
+  tipo_terreno: String!
+  construcciones_presentes: Boolean!
+}
+
+input UpdateTerrenoInput {
+  area: Float
+  valor_comercial: Float
+  cerca_fuentes_agua: Boolean
+  tipo_terreno: String
+  construcciones_presentes: Boolean
+}
+

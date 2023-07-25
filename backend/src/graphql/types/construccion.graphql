@@ -1,0 +1,35 @@
+type Construccion {
+  construccion_id: UUID!
+  predio_id: UUID
+  numero_pisos: Int!
+  area_total: Float!
+  tipo_construccion: String!
+  direccion: String!
+  created_at: Datatime
+  updated_at: Datatime
+}
+
+type Query {
+  construcciones: [Construccion!]!
+  construccion(construccion_id: UUID!): Construccion
+}
+
+type Mutation {
+  createConstruccion(input: CreateConstruccionInput!): Construccion!
+  updateConstruccion(construccion_id: UUID!, input: UpdateConstruccionInput!): Construccion!
+  deleteConstruccion(construccion_id: UUID!): Boolean!
+}
+
+input CreateConstruccionInput {
+  numero_pisos: Int!
+  area_total: Float!
+  tipo_construccion: String!
+  direccion: String!
+}
+
+input UpdateConstruccionInput {
+  numero_pisos: Int
+  area_total: Float
+  tipo_construccion: String
+  direccion: String
+}
